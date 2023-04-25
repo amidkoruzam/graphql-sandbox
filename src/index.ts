@@ -9,6 +9,7 @@ const typeDefs = `#graphql
 
   type Query {
     books: [Book]
+    booksByAuthor(author: String): [Book]
   }
 `;
 
@@ -26,6 +27,9 @@ const books = [
 const resolvers = {
   Query: {
     books: () => books,
+    booksByAuthor: (parent, args, context, info) => {
+      return books.filter((book) => book.author === args.author);
+    },
   },
 };
 
