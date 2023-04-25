@@ -1,17 +1,8 @@
+import { readFileSync } from "fs";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
-const typeDefs = `#graphql
-  type Book {
-    title: String
-    author: String
-  }
-
-  type Query {
-    books: [Book]
-    booksByAuthor(author: String): [Book]
-  }
-`;
+const typeDefs = readFileSync("./schema.graphql", { encoding: "utf-8" });
 
 const books = [
   {
