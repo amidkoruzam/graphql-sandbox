@@ -2,6 +2,8 @@ import { readFileSync } from "fs";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
+import { Resolvers } from "./__generated__/resolvers-types";
+
 const typeDefs = readFileSync("./schema.graphql", { encoding: "utf-8" });
 
 const books = [
@@ -15,10 +17,10 @@ const books = [
   },
 ];
 
-const resolvers = {
+const resolvers: Resolvers = {
   Query: {
     books: () => books,
-    booksByAuthor: (parent, args, context, info) => {
+    booksByAuthor: (_, args) => {
       return books.filter((book) => book.author === args.author);
     },
   },
