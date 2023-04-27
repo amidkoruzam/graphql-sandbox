@@ -6,23 +6,31 @@ import { Resolvers } from "./__generated__/resolvers-types";
 
 const typeDefs = readFileSync("./schema.graphql", { encoding: "utf-8" });
 
+const authors = [
+  {
+    id: 1,
+    name: "Kate Chopin",
+  },
+  {
+    id: 2,
+    name: "Paul Auster",
+  },
+];
+
 const books = [
   {
     title: "The Awakening",
-    author: "Kate Chopin",
+    author: 1,
   },
   {
     title: "City of Glass",
-    author: "Paul Auster",
+    author: 2,
   },
 ];
 
 const resolvers: Resolvers = {
   Query: {
     books: () => books,
-    booksByAuthor: (_, args) => {
-      return books.filter((book) => book.author === args.author);
-    },
   },
 };
 
