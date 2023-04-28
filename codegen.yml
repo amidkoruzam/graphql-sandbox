@@ -6,3 +6,6 @@ generates:
       - "typescript-resolvers"
     config:
       useIndexSignature: true
+      mappers:
+        Author: ./models#AuthorObject
+        Book: ./models#BookObject

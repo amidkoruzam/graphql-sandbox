@@ -1,19 +1,25 @@
 import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
 import { Resolvers } from "./__generated__/resolvers-types";
 
-const typeDefs = readFileSync("./schema.graphql", { encoding: "utf-8" });
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const typeDefs = readFileSync(__dirname + "./schema.graphql", {
+  encoding: "utf-8",
+});
 
 const authors = [
   {
     id: 1,
-    name: "Kate Chopin",
+    firstName: "Kate",
+    lastName: "Chopin",
   },
   {
     id: 2,
-    name: "Paul Auster",
+    firstName: "Paul",
+    lastName: "Auster",
   },
 ];
 
@@ -31,6 +37,12 @@ const books = [
 const resolvers: Resolvers = {
   Query: {
     books: () => books,
+  },
+  Book: {
+    author: (book) => authors.find((author) => author.id === book.author),
+  },
+  Author: {
+    name: (author) => `${author.firstName} ${author.lastName}`,
   },
 };
 
