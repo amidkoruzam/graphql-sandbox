@@ -1,11 +1,11 @@
 type Book {
-    title: String
+    title: String!
     author: Author!
 }
 
 type Author {
-    id: Int
-    name: String
+    id: Int!
+    name: String!
 }
 
 type Query {
