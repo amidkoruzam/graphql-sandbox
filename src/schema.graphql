@@ -10,5 +10,4 @@ type Author {
 
 type Query {
     books: [Book]
-    booksByAuthor(author: String): [Book]
 }
