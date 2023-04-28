@@ -1,6 +1,6 @@
 type Book {
     title: String
-    author: Int
+    author: Author!
 }
 
 type Author {
