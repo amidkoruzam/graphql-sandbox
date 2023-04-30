@@ -8,3 +8,8 @@ export type BookObject = {
   title: string;
   author: number;
 };
+
+export type CountryObject = {
+  id: number;
+  name: string;
+};
