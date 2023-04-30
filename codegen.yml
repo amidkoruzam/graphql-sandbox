@@ -9,3 +9,4 @@ generates:
       mappers:
         Author: ./models#AuthorObject
         Book: ./models#BookObject
+        Country: ./models#CountryObject

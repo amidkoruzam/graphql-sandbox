@@ -57,6 +57,8 @@ const resolvers: Resolvers = {
   },
   Author: {
     name: (author) => `${author.firstName} ${author.lastName}`,
+    country: (author) =>
+      countries.find((country) => country.id === author.countryId),
   },
 };
 

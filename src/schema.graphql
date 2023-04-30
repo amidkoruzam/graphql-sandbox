@@ -6,6 +6,12 @@ type Book {
 type Author {
     id: Int!
     name: String!
+    country: Country!
+}
+
+type Country {
+    id: Int!
+    name: String!
 }
 
 type Query {
