@@ -2,6 +2,7 @@ export type AuthorObject = {
   id: number;
   firstName: string;
   lastName: string;
+  countryId: number;
 };
 
 export type BookObject = {

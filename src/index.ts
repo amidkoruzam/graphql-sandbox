@@ -4,7 +4,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
 import { Resolvers } from "./__generated__/resolvers-types";
-import { CountryObject } from "./models";
+import { AuthorObject, CountryObject } from "./models";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const typeDefs = readFileSync(__dirname + "./schema.graphql", {
@@ -22,16 +22,18 @@ const countries: CountryObject[] = [
   },
 ];
 
-const authors = [
+const authors: AuthorObject[] = [
   {
     id: 1,
     firstName: "Kate",
     lastName: "Chopin",
+    countryId: 1,
   },
   {
     id: 2,
     firstName: "Paul",
     lastName: "Auster",
+    countryId: 2,
   },
 ];
 
